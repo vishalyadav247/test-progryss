@@ -13,7 +13,7 @@ import { api } from "../api";
 
 export default function Index() {
   return (
-    <Page title="New App">
+    <Page title="App">
       <Layout>
         <Layout.Section>
           <Card>
