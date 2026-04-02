@@ -1,0 +1,21 @@
+# Learn more about working with Shopify TOML files with Gadget at https://docs.gadget.dev/guides/plugins/shopify/advanced-topics/shopify-app-toml
+
+client_id = "0628c6996edf7c6803efc2569e4cc2da"
+name = "test-progryss-development"
+application_url = "https://test-progryss--development.gadget.app/api/shopify/install-or-render"
+embedded = true
+
+handle = "test-progryss-development-1"
+[auth]
+redirect_urls = [ "https://test-progryss--development.gadget.app/api/connections/auth/shopify/callback" ]
+
+[access_scopes]
+scopes = "read_products, write_products"
+
+[webhooks]
+api_version = "2026-01"
+
+[[webhooks.subscriptions]]
+compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
+uri = "https://webhooks.gadget-services.net/shopify/v1?domain=test-progryss--development.gadget.app"
+topics = [ "products/create", "products/update", "products/delete", "shop/update", "app/uninstalled" ]

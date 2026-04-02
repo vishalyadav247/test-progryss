@@ -1,0 +1,23 @@
+name: push to test progryss development
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install ggt
+        run: |
+          npm install -g ggt
+          ggt version
+
+      - name: Push code to test progryss development
+        run: |
+          ggt push --app=test-progryss --env=development --force --allow-unknown-directory
+        env:
+          GGT_TOKEN: ${{ secrets.GGT_TOKEN }}
